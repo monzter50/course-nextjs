@@ -1,0 +1,29 @@
+{
+  "name": "course-nextjs",
+  "version": "1.0.0",
+  "description": "Install it in your project:",
+  "main": "index.js",
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "next": "^9.1.5",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monzter50/course-nextjs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/monzter50/course-nextjs/issues"
+  },
+  "homepage": "https://github.com/monzter50/course-nextjs#readme"
+}
