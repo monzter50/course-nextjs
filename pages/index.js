@@ -1,4 +1,5 @@
 import style from "./style.css";
+import Link from 'next/link'
 function Home() {
   return (
     <div>
@@ -21,6 +22,11 @@ function Home() {
         </div>
       </header>
       <h1 className={style.header}>Welcome to Next.js!</h1>
+      <div>
+        <Link href={{ pathname: '/about', query: { name: 'Zeit' } }}>
+          <a>About Us</a>
+        </Link>
+      </div>
     </div>
   );
 }
