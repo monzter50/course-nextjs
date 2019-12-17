@@ -16,7 +16,7 @@
 
 p {
   line-height: 1.5;
-  margin: 30px 0;
+  margin:.7em 0;
 }
 
 p a {
@@ -47,7 +47,7 @@ blockquote {
   color: #868e96;
 }
 
-.section-heading {
+.sectionHeading {
   font-size: 36px;
   font-weight: 700;
   margin-top: 60px;
@@ -173,15 +173,11 @@ img::-moz-selection {
 }
 
 header.masthead {
-  margin-bottom: 50px;
-  background: no-repeat center center;
-  background-color: #868e96;
-  background-attachment: scroll;
   position: relative;
-  background-size: cover;
 }
 
-header.masthead .overlay {
+.masthead::before{
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -189,36 +185,38 @@ header.masthead .overlay {
   width: 100%;
   background-color: #212529;
   opacity: 0.5;
+  z-index: 0;
 }
 
-header.masthead .page-heading,
-header.masthead .post-heading,
-header.masthead .site-heading {
+header.masthead .pageHeading,
+header.masthead .postHeading,
+header.masthead .siteHeading {
   padding: 200px 0 150px;
   color: white;
 }
 
 @media only screen and (min-width: 768px) {
-  header.masthead .page-heading,
-  header.masthead .post-heading,
-  header.masthead .site-heading {
+  header.masthead .pageHeading,
+  header.masthead .postHeading,
+  header.masthead .siteHeading {
     padding: 200px 0;
   }
 }
 
-header.masthead .page-heading,
-header.masthead .site-heading {
+header.masthead .pageHeading,
+header.masthead .siteHeading {
   text-align: center;
+    z-index: 1;
 }
 
-header.masthead .page-heading h1,
-header.masthead .site-heading h1 {
+header.masthead .pageHeading h1,
+header.masthead .siteHeading h1 {
   font-size: 50px;
   margin-top: 0;
 }
 
-header.masthead .page-heading .subheading,
-header.masthead .site-heading .subheading {
+header.masthead .pageHeading .subheading,
+header.masthead .siteHeading .subheading {
   font-size: 24px;
   font-weight: 300;
   line-height: 1.1;
@@ -228,88 +226,93 @@ header.masthead .site-heading .subheading {
 }
 
 @media only screen and (min-width: 768px) {
-  header.masthead .page-heading h1,
-  header.masthead .site-heading h1 {
+  header.masthead .pageHeading h1,
+  header.masthead .siteHeading h1 {
     font-size: 80px;
   }
 }
 
-header.masthead .post-heading h1 {
+header.masthead .postHeading h1 {
   font-size: 35px;
 }
 
-header.masthead .post-heading .meta,
-header.masthead .post-heading .subheading {
+header.masthead .postHeading .meta,
+header.masthead .postHeading .subheading {
   line-height: 1.1;
   display: block;
 }
 
-header.masthead .post-heading .subheading {
+header.masthead .postHeading .subheading {
   font-size: 24px;
   font-weight: 600;
   margin: 10px 0 30px;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-header.masthead .post-heading .meta {
+header.masthead .postHeading .meta {
   font-size: 20px;
   font-weight: 300;
   font-style: italic;
   font-family: 'Lora', 'Times New Roman', serif;
 }
 
-header.masthead .post-heading .meta a {
+header.masthead .postHeading .meta a {
   color: #fff;
 }
 
 @media only screen and (min-width: 768px) {
-  header.masthead .post-heading h1 {
+  header.masthead .postHeading h1 {
     font-size: 55px;
   }
-  header.masthead .post-heading .subheading {
+  header.masthead .postHeading .subheading {
     font-size: 30px;
   }
 }
-
-.post-preview > a {
+.postPreview{
+  margin: 2em 0;
+  border: 1px solid black;
+  padding: .8em;
+  border-radius: .3em;
+}
+.postPreview > a {
   color: #212529;
 }
 
-.post-preview > a:focus, .post-preview > a:hover {
+.postPreview > a:focus, .postPreview > a:hover {
   text-decoration: none;
   color: #0085A1;
 }
 
-.post-preview > a > .post-title {
+.postPreview > .postTitle {
   font-size: 30px;
-  margin-top: 30px;
   margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
-.post-preview > a > .post-subtitle {
+.postPreview > a > .post-subtitle {
   font-weight: 300;
   margin: 0 0 10px;
 }
 
-.post-preview > .post-meta {
+.postPreview > .postMeta {
   font-size: 18px;
   font-style: italic;
   margin-top: 0;
   color: #868e96;
 }
 
-.post-preview > .post-meta > a {
+.postPreview > .postMeta > a {
   text-decoration: none;
   color: #212529;
 }
 
-.post-preview > .post-meta > a:focus, .post-preview > .post-meta > a:hover {
+.postPreview > .postMeta > a:focus, .postPreview > .postMeta > a:hover {
   text-decoration: underline;
   color: #0085A1;
 }
 
 @media only screen and (min-width: 768px) {
-  .post-preview > a > .post-title {
+  .postPreview > a > .postTitle {
     font-size: 36px;
   }
 }
@@ -336,8 +339,8 @@ header.masthead .post-heading .meta a {
   font-family: 'Lora', 'Times New Roman', serif;
 }
 
-.floating-label-form-group input::-webkit-input-placeholder,
-.floating-label-form-group textarea::-webkit-input-placeholder {
+.floating-label-form-group input::-webkit-inputPlaceholder,
+.floating-label-form-group textarea::-webkit-inputPlaceholder {
   color: #868e96;
   font-family: 'Lora', 'Times New Roman', serif;
 }
@@ -394,22 +397,43 @@ footer .copyright {
   padding: 15px 25px;
   letter-spacing: 1px;
   text-transform: uppercase;
+  display: inline-block;
+  text-decoration: none;
   border-radius: 0;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.btn-primary {
+.btnPrimary {
   background-color: #0085A1;
   border-color: #0085A1;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+.btnPrimary:hover, .btnPrimary:focus, .btnPrimary:active {
   color: #fff;
   background-color: #00657b !important;
   border-color: #00657b !important;
 }
 
-.btn-lg {
+.btnLg {
   font-size: 16px;
   padding: 25px 35px;
+}
+
+.container{
+  max-width: 1200px;
+  width: 80%;
+  margin: 0 auto;
+}
+.mastheadImg{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+.positionRelative{
+  position: relative;
+}
+.textWhite,a.textWhite{
+  color: white;
 }
