@@ -1,37 +1,15 @@
-import style from "./style.css";
+import style from "../static/css/style.css";
 import fetch from "isomorphic-unfetch";
-import Link from "next/link";
+import Card from '../components/Card';
+import Layout from '../components/Layout';
 function Home({ posts }) {
   return (
     <div>
-      <header className={style.masthead}>
-        <img src="./static/home-bg.jpg" className={style.mastheadImg} />
-        <div className={`${style.container} ${style.positionRelative}`}>
-          <div className={style.siteHeading}>
-            <h1> My first blog with NextJs</h1>
-            <span className={style.subheading}>
-              A Blog Theme by Start Bootstrap
-            </span>
-          </div>
-        </div>
-      </header>
-      <main>
-        <div className={`${style.container}`}>
-          <h1 className={style.sectionHeading}>Welcome to Next.js!!</h1>
-
+    <Layout title={"My first Blog Next"} subtitle="A Blog Theme by Start Bootstrap">
           {posts.map(post => (
-            <div className={style.postPreview} key={post.id}>
-              <h1 className={style.postTitle}>{post.title}</h1>
-              <article>
-                <p>{post.body}</p>
-                <Link href={{ pathname: "/details", query: { id: post.id ,userId:post.userId} }}>
-                  <a className={`${style.btn} ${style.btnPrimary}`}>Read</a>
-                </Link>
-              </article>
-            </div>
+            <Card post={post} />
           ))}
-        </div>
-      </main>
+        </Layout>
     </div>
   );
 }
