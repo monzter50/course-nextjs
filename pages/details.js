@@ -34,10 +34,12 @@ function Details({post,user}) {
 Details.getInitialProps = async ({ query }) => {
   let idPost = query.id
   let idUser = query.userId
-  const resPost = await fetch(`https://jsonplaceholder.typicode.com/posts/${idPost}`);
-  const jsonPost = await resPost.json();
-  const resUser = await fetch(`https://jsonplaceholder.typicode.com/users/${idUser}`);
-  const jsonUser = await resUser.json();
+  let [reqPost,reqUser] =  await Promise.all([
+    fetch(`https://jsonplaceholder.typicode.com/posts/${idPost}`),
+    fetch(`https://jsonplaceholder.typicode.com/users/${idUser}`)
+  ]);
+  const jsonPost = await reqPost.json();
+  const jsonUser = await reqUser.json();
   console.log(jsonUser)
   return { post: jsonPost,user:jsonUser };
 };
